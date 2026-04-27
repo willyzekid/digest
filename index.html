@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly Briefings — 27 April 2026</title>
+<style>
+  :root {
+    --text: #1a1a1a;
+    --muted: #6b7280;
+    --rule: #e5e7eb;
+    --bg: #ffffff;
+    --link: #1a1a1a;
+    --tag: #6b7280;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .date {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 24px;
+  }
+  .prev {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .prev strong {
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .prev ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .prev li { margin: 2px 0; }
+  a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  /* CSS-only tabs via radio inputs */
+  .tabs { display: block; }
+  .tabs input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+  .tabs .labels {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .tabs label {
+    cursor: pointer;
+    padding: 10px 16px;
+    font-size: 15px;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    user-select: none;
+  }
+  .tabs label:hover { color: var(--text); }
+  .tab-content { display: none; }
+
+  #t-loyalty:checked ~ .labels label[for="t-loyalty"],
+  #t-ai:checked ~ .labels label[for="t-ai"],
+  #t-startups:checked ~ .labels label[for="t-startups"] {
+    color: var(--text);
+    font-weight: 600;
+    border-bottom-color: var(--text);
+  }
+  #t-loyalty:checked ~ #c-loyalty,
+  #t-ai:checked ~ #c-ai,
+  #t-startups:checked ~ #c-startups { display: block; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 36px;
+  }
+  article {
+    margin: 0 0 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+  article:last-of-type { border-bottom: none; }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+  article p { margin: 0 0 12px; }
+  article ul { margin: 0 0 12px; padding-left: 22px; }
+  article li { margin-bottom: 4px; }
+  .reco {
+    margin: 0 0 12px;
+    font-style: italic;
+  }
+  .reco::before { content: "Recommendation. "; font-style: normal; font-weight: 600; }
+  .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 8px 0 0;
+  }
+  .tags { color: var(--tag); }
+  .source { display: block; margin-top: 4px; }
+  .source a { color: var(--muted); }
+  .idx { color: var(--muted); font-weight: 400; margin-right: 8px; }
+  .field { font-size: 14px; margin: 4px 0; }
+  .field strong { font-weight: 600; }
+  .themes, .reflect {
+    background: transparent;
+    border-top: 2px solid var(--text);
+    padding-top: 24px;
+    margin-top: 16px;
+  }
+  .themes h2, .reflect h2 { font-size: 18px; margin-bottom: 16px; }
+  .theme {
+    margin: 0 0 24px;
+  }
+  .theme h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .theme p { margin: 0; }
+  .reflect ol { padding-left: 22px; margin: 0; }
+  .reflect li { margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Weekly Briefings</h1>
+  <p class="date">Monday, 27 April 2026</p>
+  <div class="prev">
+    <strong>Previous briefings</strong>
+    <ul>
+      <li>No previous briefings yet — this is the first edition.</li>
+    </ul>
+  </div>
+</header>
+
+<form class="tabs">
+  <input type="radio" name="tabs" id="t-loyalty" checked>
+  <input type="radio" name="tabs" id="t-ai">
+  <input type="radio" name="tabs" id="t-startups">
+
+  <div class="labels">
+    <label for="t-loyalty">Loyalty &amp; Personalization</label>
+    <label for="t-ai">AI</label>
+    <label for="t-startups">Startup Ideas</label>
+  </div>
+
+  <!-- ============ LOYALTY ============ -->
+  <section class="tab-content" id="c-loyalty">
+    <h2>Loyalty &amp; Personalization</h2>
+    <p class="subtitle">Last 7 days. 15 stories.</p>
+
+    <article>
+      <h3><span class="idx">01.</span>Adobe replaces Experience Cloud with CX Enterprise and ships agentic "Coworkers"</h3>
+      <p>At Adobe Summit on 20 April Adobe unveiled CX Enterprise, an AI-first platform that supersedes Experience Cloud and is built around persistent agents called Coworkers that run continuously toward business goals. The release also introduced Adobe Engagement Intelligence (a CLV-optimised decisioning engine), Adobe Journey Optimizer Loyalty, and an expansion of Real-Time CDP profiles unifying structured and unstructured data. Adobe said the underlying Experience Platform is now driving more than one trillion experiences a year for global customers.</p>
+      <ul>
+        <li>Re-platforming the marketing stack around always-on agents shifts the buying conversation from suite breadth to agent governance and orchestration.</li>
+        <li>Native Loyalty Optimizer and CLV-led decisioning compress the gap between CDP, campaign and program-mechanics tooling that incumbent loyalty vendors have monetised separately.</li>
+        <li>"Trillion experiences" framing turns Adobe's footprint into a defensive moat against composable warehouse-native challengers.</li>
+      </ul>
+      <p class="reco">Treat the next 18 months as a window to renegotiate enterprise martech contracts on agent-orchestration terms before pricing models reset around them.</p>
+      <p class="meta"><span class="tags">Tags: Technology &amp; ecosystem · Personalization methods · Program mechanics &amp; design · AI as teammate</span><span class="source"><a href="https://news.adobe.com/news/2026/04/adobe-unveils-cx-enterprise-coworker">news.adobe.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">02.</span>Databricks and Adobe ship Delta Sharing inside Experience Platform, killing the ETL hop</h3>
+      <p>On 20 April Databricks and Adobe announced a bidirectional integration that lets Experience Platform read governed first-party data directly from Databricks via Delta Sharing, with no copy and no pipeline. The integration plugs into Adobe's Agent Orchestrator so AI agents can act on warehouse data in real time. The companies pitched the link as the foundation for "agentic marketing workflows" that work off live, governed data instead of stale CDP extracts.</p>
+      <ul>
+        <li>Zero-copy access removes one of the last technical reasons to duplicate customer data in a packaged CDP, accelerating the warehouse-native CDP shift.</li>
+        <li>Loyalty teams gain a path to use SKU-level transaction data and ML features that previously lived only in the data team's stack.</li>
+        <li>Audit, lineage and consent become CDP differentiators because identical data is now reachable from two activation surfaces.</li>
+      </ul>
+      <p class="reco">Audit your CDP roadmap against a warehouse-native baseline; if the only justification for duplicated profile stores is latency, request benchmarks against Delta Sharing before the next renewal.</p>
+      <p class="meta"><span class="tags">Tags: Technology &amp; ecosystem · Data &amp; identity · Measurement &amp; economics</span><span class="source"><a href="https://www.databricks.com/blog/adobe-databricks-delta-sharing-agentic-marketing">databricks.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">03.</span>SAP and Google Cloud expand partnership around real-time, business-grounded personalization</h3>
+      <p>SAP and Google Cloud announced a deeper partnership around AI-powered customer experience, anchored on SAP Business Data Cloud as the source of trusted enterprise context for Google's marketing and agent stack. SAP cited its own research showing 45% of customers say brands cannot keep up with their expectations and 44% say interactions feel less personal than before. The companies positioned multi-agent coordination, grounded in semantically rich enterprise data, as the new execution layer for personalization at scale.</p>
+      <ul>
+        <li>The hyperscalers are now competing on which one has the cleanest line into authoritative enterprise data — not just the best foundation model.</li>
+        <li>For consumer brands running on SAP, the partnership shortens the path from order, finance and supply-chain signals to marketing activation.</li>
+        <li>Multi-agent coordination shifts personalization measurement from campaign-level uplift to agent-level decision quality.</li>
+      </ul>
+      <p class="reco">Map every personalization use case against the enterprise systems of record it depends on; gaps in that map will become limits on agent quality, not creative quality.</p>
+      <p class="meta"><span class="tags">Tags: Partnerships &amp; coalitions · Personalization methods · Technology &amp; ecosystem</span><span class="source"><a href="https://news.sap.com/2026/04/ai-customer-experience-sap-google-cloud-building-what-comes-next/">news.sap.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">04.</span>Tesco and Adobe open a joint Innovation Lab anchored on Clubcard</h3>
+      <p>Tesco announced a strategic partnership with Adobe combining the agentic capabilities of Adobe Experience Platform and Adobe Firefly Foundry with the data inside Tesco's 24-million-household Clubcard programme. The companies have set up a Tesco × Adobe Innovation Lab where Adobe engineers sit alongside Tesco's personalization and AI teams. The stated goal is anticipating customer needs across journey stages rather than reacting to segments.</p>
+      <ul>
+        <li>The UK's largest first-party retail data set is being plumbed directly into agentic workflows, raising the personalization bar across UK grocery.</li>
+        <li>Embedded vendor engineering teams signal that loyalty programs are increasingly viewed as engineering products, not marketing assets.</li>
+        <li>Competitors anchored on coupon-style loyalty face an uphill climb against an integrated data + decisioning + creative stack.</li>
+      </ul>
+      <p class="reco">If you operate a top-five loyalty program in your market, treat embedded vendor engineering as the new normal and bake it into your supplier negotiations.</p>
+      <p class="meta"><span class="tags">Tags: Partnerships &amp; coalitions · Personalization methods · Sector moves</span><span class="source"><a href="https://www.cxtoday.com/crm/u-k-retail-loyalty-enters-ai-era-as-ms-tesco-and-boots-drive-hyper-personalization-in-reward-schemes/">cxtoday.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">05.</span>Marks &amp; Spencer rebuilds Sparks around machine learning and a personalized hub</h3>
+      <p>Marks &amp; Spencer announced an AI-and-data overhaul of its Sparks loyalty program, with machine learning and forthcoming generative models powering more individualised offers and rewards. The relaunch nudges members beyond their usual categories with tailored incentives and surfaces a new personalised Sparks hub inside the M&amp;S app. The company framed the move as a shift from broad-based loyalty incentives to category-discovery and per-person engagement.</p>
+      <ul>
+        <li>UK retailers are converging on a similar playbook (Tesco, M&amp;S, Boots), turning loyalty data into the cross-sell engine rather than the discount mechanism.</li>
+        <li>Discovery-led offers create a measurable lift on basket diversity, a metric that mass-market grocers have historically struggled to move.</li>
+        <li>The economic case for owning a deep first-party app moves from "channel" to "decisioning surface".</li>
+      </ul>
+      <p class="reco">Set a target metric for category-cross-shop in addition to repeat rate; without it, AI-powered loyalty quickly devolves back to discount engineering.</p>
+      <p class="meta"><span class="tags">Tags: Sector moves · Personalization methods · Program mechanics &amp; design</span><span class="source"><a href="https://www.cxtoday.com/crm/u-k-retail-loyalty-enters-ai-era-as-ms-tesco-and-boots-drive-hyper-personalization-in-reward-schemes/">cxtoday.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">06.</span>Sam's Club expands its Member Access Platform into a "Retail Experience Network"</h3>
+      <p>Sam's Club extended its retail media business beyond on-site digital, adding fuel-screen advertising at more than 500 fuel stations, in-club audio, and brand activations across the member journey. The Walmart-owned warehouse retailer rebranded the offering as a "Retail Experience Network" to signal a shift from screens to whole-journey monetisation. The push positions parking lots, fuel pumps, in-club aisles and off-site events as a single addressable inventory tied to member identity.</p>
+      <ul>
+        <li>Closed-loop fuel-pump advertising creates a measurable physical-world surface that brand advertisers have lacked outside of TV upfronts.</li>
+        <li>"Member journey" framing pulls retail media spend toward retention and frequency, not just acquisition.</li>
+        <li>Other club retailers and supermarkets will be pressured to monetise the same dwell-time real estate or lose share of trade dollars.</li>
+      </ul>
+      <p class="reco">Treat in-store and forecourt media as a single budget line at sign-off, and demand member-level reach and frequency reporting from any retailer pitching off-site formats.</p>
+      <p class="meta"><span class="tags">Tags: Channel orchestration · Sector moves · Technology &amp; ecosystem</span><span class="source"><a href="https://invidis.com/news/2026/04/retail-sams-club-expands-retail-media-network/">invidis.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">07.</span>Albertsons Media Collective puts incrementality at the centre of retail-media measurement</h3>
+      <p>Albertsons Media Collective launched a new on-site incrementality measurement capability designed to tell advertisers how much of their on-site display drove genuinely new sales. The release is paired with research from Albertsons, Ovative and Northwestern Kellogg showing that incremental ROAS can vary by up to 6.5x and flip the sign on results in 83% of campaigns, depending on the methodology. The supermarket framed the move as a direct response to advertiser frustration with self-reported ROAS metrics.</p>
+      <ul>
+        <li>The retail-media-buyer's central question for 2026 is no longer "what is my ROAS?" but "is your ROAS incremental?".</li>
+        <li>Methodology-driven swings in measured outcome create real risk for in-house attribution and threaten established RMN reporting standards.</li>
+        <li>Retailers that fail to publish incrementality methodology will lose a meaningful slice of trade-spend share in the next planning cycle.</li>
+      </ul>
+      <p class="reco">Add an incremental-ROAS clause to your top three retail-media contracts at the next renewal and make payment partly contingent on third-party validation.</p>
+      <p class="meta"><span class="tags">Tags: Measurement &amp; economics · Channel orchestration · Sector moves</span><span class="source"><a href="https://www.supermarketnews.com/retail-media/albertsons-strengthens-its-retail-media-network">supermarketnews.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">08.</span>United MileagePlus splits members into cardholders and non-cardholders, with award-inventory perks attached</h3>
+      <p>United Airlines' rebuilt MileagePlus structure is now live, with general members earning 3 points per dollar and cardholders earning 6 on tickets purchased from 2 April. United also extended access to "Saver Award" business-class inventory — previously reserved for Platinum and 1K members — to anyone holding a United-branded credit or debit card. Industry analysts called it the most explicit two-track loyalty system any major US airline has implemented to date.</p>
+      <ul>
+        <li>The economics of airline loyalty continue to shift from butts-in-seats to bank-card-in-wallet, with co-brand earn-rates becoming the headline benefit.</li>
+        <li>Award inventory is being repriced as a card-acquisition lever, eroding the elite-status proposition for high-mileage but non-card members.</li>
+        <li>Banks now have direct visibility into how award inventory drives card profitability, intensifying the competition for partner contracts.</li>
+      </ul>
+      <p class="reco">If you are a co-brand issuer or partner, model premium-cabin award inventory as a marketing asset on your card P&amp;L, not a cost.</p>
+      <p class="meta"><span class="tags">Tags: Program mechanics &amp; design · Partnerships &amp; coalitions · Measurement &amp; economics</span><span class="source"><a href="https://www.customerexperiencedive.com/news/united-airlines-changes-loyalty-program-credit-card/813005/">customerexperiencedive.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">09.</span>Vodafone Business and Google Cloud launch an AI Concierge for SMBs</h3>
+      <p>At Google Cloud Next on 22 April, Vodafone Business launched a managed detection-and-response service plus the Vodafone Business AI Concierge, an agentic AI tool that automates SMB customer interactions. The offering bundles enterprise-grade AI and cybersecurity into a packaged subscription pitched at firms without in-house teams. Vodafone framed the product as a way to take small-business customer service from "missed call" to "answered conversation" without recruiting agents.</p>
+      <ul>
+        <li>SMB customer experience, historically a structural blind spot, is becoming a packaged-product category dominated by telecom and platform players.</li>
+        <li>Enterprises selling through SMB intermediaries face a new question: whose AI concierge holds the customer relationship?</li>
+        <li>The bundle shifts pricing power further from independent CRM vendors toward telecom and hyperscaler-led suites.</li>
+      </ul>
+      <p class="reco">If your distribution model relies on SMB merchants or agents, run a 90-day pilot embedding your loyalty mechanics inside their AI concierge before a competitor does.</p>
+      <p class="meta"><span class="tags">Tags: Technology &amp; ecosystem · CX &amp; service · Partnerships &amp; coalitions</span><span class="source"><a href="https://www.cxtoday.com/security-privacy-compliance/vodafone-business-and-google-cloud-launch-ai-and-cybersecurity-tools-for-smbs-as-cyber-risks-rise/">cxtoday.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">10.</span>PayPal turns 430 million accounts into a cross-channel attribution graph</h3>
+      <p>PayPal launched a TV-ad effectiveness capability built on a transaction graph spanning more than 430 million consumer accounts and tens of millions of merchants. The product maps purchase journeys back to specific TV exposures and returns measured outcomes tied directly to spend. JPMorgan's Chase Media Solutions is pushing similar transaction-data-driven targeting and measurement, using data from roughly 80 million consumers.</p>
+      <ul>
+        <li>Payments networks are now positioning themselves as media-measurement infrastructure, blurring the line between rails and media owners.</li>
+        <li>For brands, transaction-graph attribution becomes a benchmark that pure publisher-side metrics will be measured against.</li>
+        <li>Privacy regulators in Europe will likely scrutinise these graphs against the EDPB's 2026 transparency focus, especially for cross-border use.</li>
+      </ul>
+      <p class="reco">Pilot transaction-graph attribution against your incumbent MTA model on one CPG-style category before the methodology bakes in across upfronts.</p>
+      <p class="meta"><span class="tags">Tags: Measurement &amp; economics · Data &amp; identity · Channel orchestration</span><span class="source"><a href="https://www.pymnts.com/retail-2/2026/retail-media-grows-but-hard-to-use-offers-hold-it-back/">pymnts.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">11.</span>Italy's data-protection authority fines a national postal-and-financial provider €6.6m for retention failures</h3>
+      <p>On 20 April Italy's Garante penalised a national postal and financial-services provider €6,624,000 after finding it processed personal data beyond its lawful retention windows and lacked controls to delete or anonymise records once their original purpose had been satisfied. The regulator also ordered the entity to halt the contested processing. The case sits within a wider 2026 EDPB campaign targeting transparency and information obligations under Articles 12–14 of GDPR.</p>
+      <ul>
+        <li>Loyalty programs that retain consent beyond its original scope or purpose are now an active enforcement target, not a theoretical one.</li>
+        <li>Penalties are landing on retention design rather than headline breaches, raising the cost of legacy data debt.</li>
+        <li>"We always did it this way" is no defence in the EDPB's transparency-focused 2026 enforcement cycle.</li>
+      </ul>
+      <p class="reco">Run a six-week retention-purpose audit of your top three customer data stores; expect to delete more than you keep.</p>
+      <p class="meta"><span class="tags">Tags: Risk, trust &amp; regulation · Data &amp; identity · Sector moves</span><span class="source"><a href="https://www.kiteworks.com/gdpr-compliance/gdpr-fines-data-privacy-enforcement-2026/">kiteworks.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">12.</span>EDPB confirms transparency as the focus of its 2026 coordinated enforcement</h3>
+      <p>The European Data Protection Board reaffirmed that its 2026 coordinated enforcement action will target transparency and information obligations under Articles 12–14 of GDPR, with national authorities co-investigating cross-border cases. The EDPB explicitly named unclear privacy notices, insufficient detail on processing purposes, and inadequate disclosure of cross-border transfers as priority issues. National authorities are joining the action voluntarily through 2026.</p>
+      <ul>
+        <li>Loyalty programs and CDPs are squarely in scope because they aggregate purpose-limited data across many channels and partners.</li>
+        <li>Generic privacy notices that name "categories of recipients" instead of named third countries are now an enforcement risk in their own right.</li>
+        <li>Cross-EU coordination raises the cost of regulatory triage — a single non-compliant template can land in twenty jurisdictions at once.</li>
+      </ul>
+      <p class="reco">Replace category-based recipient disclosures with named third parties in customer-facing privacy text within the next two reporting cycles.</p>
+      <p class="meta"><span class="tags">Tags: Risk, trust &amp; regulation · Data &amp; identity · CX &amp; service</span><span class="source"><a href="https://www.insideprivacy.com/eu-data-protection/edpb-to-focus-on-transparency-in-2026-enforcement/">insideprivacy.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">13.</span>Marriott Bonvoy leans into "Passion Points" and a soft-landing for lapsed elites</h3>
+      <p>Marriott Bonvoy, with 271 million members at end-2025, is pushing what it calls "passion points" — partnership-driven access to experiences ranging from Starbucks artist events to one-point entry tickets — as the next axis of differentiation. Marriott is also confirming a soft-landing rule that grants members one tier below their previous status through February 2027 if they did not requalify in 2025. Both moves emphasise relationship maintenance over earn-and-burn mechanics.</p>
+      <ul>
+        <li>Hotel programs are re-anchoring around emotional and experiential redemption, mirroring airlines' move toward "retail" redemptions.</li>
+        <li>Soft-landings reduce churn but defer the strategic question of how to re-stimulate engagement after the grace period.</li>
+        <li>Partnership selection — Starbucks, lifestyle, sports — becomes a brand decision with measurable cross-traffic implications.</li>
+      </ul>
+      <p class="reco">Audit experience-partner economics against actual earn-and-redemption data: the partner that drives sign-ups is rarely the partner that drives renewals.</p>
+      <p class="meta"><span class="tags">Tags: Program mechanics &amp; design · CX &amp; service · Sector moves</span><span class="source"><a href="https://skift.com/2026/04/05/the-7-billion-loyalty-iou-what-marriott-and-hilton-owe-members/">skift.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">14.</span>Hilton Honors adds a Diamond Reserve tier with confirmed upgrades and 4pm checkout</h3>
+      <p>Hilton's new Diamond Reserve tier — 80 nights or 40 stays plus $18,000 of eligible spend — is the first new top-tier in the program's history and introduces a Confirmable Upgrade Reward that locks in a premium room or suite at booking. Hilton members can also earn and redeem points across new partners including Explora Journeys and AutoCamp. The package layers on a guaranteed 4pm checkout for the highest-tier members.</p>
+      <ul>
+        <li>Hotel groups are moving toward six-tier loyalty structures, recognising the long tail of high-yield travellers above traditional Diamond.</li>
+        <li>Confirmable upgrades shift program economics from probabilistic perks to inventory commitments visible at booking.</li>
+        <li>Cruise and glamping partnerships expand redemption beyond hotels, foreshadowing more cross-vertical "experience marketplaces".</li>
+      </ul>
+      <p class="reco">If your program has a single top tier, model the impact of an explicit ultra-premium tier with deterministic perks before competitors define your high-yield segment for you.</p>
+      <p class="meta"><span class="tags">Tags: Program mechanics &amp; design · CX &amp; service · Sector moves</span><span class="source"><a href="https://www.travelandtourworld.com/news/article/hotel-loyalty-programmes-in-2026-marriott-hilton-and-new-models-lead-the-way/">travelandtourworld.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">15.</span>American Airlines runs an April Loyalty Points push as it bumps partner earn-rates to 25%</h3>
+      <p>American Airlines is running its "Ready, set, jet" promotion through 30 April, awarding 500 additional Loyalty Points per flight up to 5,000 Loyalty Points total to AAdvantage members. From 1 March American also lifted its Loyalty Points bonus across partner platforms — AAdvantage Hotels, Dining, eShopping, Cruises, SimplyMiles and American Airlines Vacations — from 20% to 25%. Status thresholds remain unchanged for a third consecutive year, mirroring Delta and United's stance.</p>
+      <ul>
+        <li>Frozen status thresholds plus richer partner earn-rates push the loyalty battleground decisively into the partner ecosystem and away from flying behaviour.</li>
+        <li>Partner economics are now the single biggest profit lever for legacy programs, not flight-revenue.</li>
+        <li>Promotional cadence ("Ready, set, jet") is becoming infrastructure, replacing one-off campaigns with always-on partner stimulation.</li>
+      </ul>
+      <p class="reco">For non-airline loyalty programs, examine partner earn-rate parity with airlines as a serious leakage risk in your highest-frequency cohort.</p>
+      <p class="meta"><span class="tags">Tags: Partnerships &amp; coalitions · Program mechanics &amp; design · CX &amp; service</span><span class="source"><a href="https://news.aa.com/news/news-details/2026/Ready-set-jet-into-AAdvantage-new-year-American-Airlines-launches-promotion-offering-up-to-5000-Loyalty-Points-AADV-03/default.aspx">news.aa.com</a></span></p>
+    </article>
+
+    <div class="themes">
+      <h2>Emerging themes</h2>
+
+      <div class="theme">
+        <h4>The CDP is becoming an agent runtime, not a marketer's database</h4>
+        <p>Adobe's CX Enterprise Coworker launch and the Databricks–Adobe zero-copy integration both reframe the customer-data layer as something an autonomous agent reads in real time, with privileges, audit logs and decisioning rules. SAP and Google Cloud's deeper partnership repeats the pattern from a different starting point: enterprise systems of record feeding multi-agent execution. The implication is that loyalty teams are buying a runtime, not a database. Procurement criteria — observability, agent-level governance, latency under decision load — start to look more like SRE than martech.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Retail media's measurement reset is coming this year, not next</h4>
+        <p>Albertsons' incrementality launch and PayPal's transaction-graph attribution set up the first serious benchmarks for the retail-media spend that has flooded into Walmart, Sam's Club and similar networks. Sam's Club's Retail Experience Network simultaneously pushes the addressable surface beyond screens to fuel pumps and dwell-time formats. The combination forces a reckoning: brands that have been trading "any retailer-reported ROAS" for trade dollars are about to face hard, methodology-aware comparisons. Expect the Q4 2026 trade-marketing planning cycle to be the first where incremental ROAS is the default unit of negotiation.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Regulators have moved on from breach drama to retention and transparency</h4>
+        <p>Italy's €6.6m postal-financial fine and the EDPB's transparency CEA both target practices that loyalty programs and CDPs are structurally prone to: keeping data past its purpose, and explaining it badly. United's two-track MileagePlus and Marriott's expanded partner experiences add to the data-flow complexity that the regulators are now scrutinising. Programs that haven't refreshed retention design and recipient disclosures since the early GDPR years are the most exposed. The risk is not headline fines so much as accumulated, multi-jurisdiction enforcement that grinds operations more than headlines.</p>
+      </div>
+    </div>
+
+    <div class="reflect">
+      <h2>Reflection questions</h2>
+      <ol>
+        <li>If your CDP became an agent runtime tomorrow, which three governance gaps would your security and legal teams flag first — and is anyone funding the fix today?</li>
+        <li>How much of your retail-media spend would survive a switch to incremental ROAS measured by an external graph, and which categories would you cut first?</li>
+        <li>Where in your loyalty program are you accumulating data debt — long retention, vague consent, untested recipient lists — that an EDPB-aligned regulator could surface in a single audit?</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ AI ============ -->
+  <section class="tab-content" id="c-ai">
+    <h2>AI</h2>
+    <p class="subtitle">Last 31 days. 15 stories.</p>
+
+    <article>
+      <h3><span class="idx">01.</span>Anthropic ships Claude Mythos to 50 partners under Project Glasswing — but not the public</h3>
+      <p>On 7 April Anthropic confirmed Claude Mythos, described as a step change above Claude Opus 4.6, and announced it will not be publicly available; instead about 50 organisations get gated access under Project Glasswing for defensive cybersecurity work. Mythos scored 83.1% on the CyberGym benchmark, up from 66.6% on the previous best model, and reportedly surfaced thousands of high-severity vulnerabilities across major OS and browser stacks during controlled testing. Anthropic framed gated access as a deliberate response to the dual-use risk of frontier offensive capabilities.</p>
+      <ul>
+        <li>The frontier is bifurcating into "publicly shipped" and "gated for safety" tracks, complicating procurement and benchmarking.</li>
+        <li>Cyber benchmarks become a board-level capability metric, not just a research curiosity.</li>
+        <li>Companies in regulated sectors should expect gated-access programs to expand from cyber to biology, chemistry and finance over the next 12 months.</li>
+      </ul>
+      <p class="reco">Identify whether your security organisation can credibly request access to gated-frontier programs; if not, establish that capability before the window for first-cohort access closes.</p>
+      <p class="meta"><span class="tags">Tags: AI for innovation · Responsible AI · Systems of intelligence</span><span class="source"><a href="https://whatllm.org/blog/new-ai-models-april-2026">whatllm.org</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">02.</span>OpenAI follows with a restricted cyber model as GPT-6 slips to a "few weeks out"</h3>
+      <p>On 14 April OpenAI released its own restricted cybersecurity model and Sam Altman publicly confirmed that GPT-6 (codename "Spud") had slipped past its mid-April target into a "few weeks out" window. The cyber release mirrors Anthropic's gated approach, with the public not granted general access. Coverage noted both leading labs converged on identical disclosure logic within seven days, suggesting a shared norm forming around dual-use frontier capabilities.</p>
+      <ul>
+        <li>The two frontier labs have implicitly aligned on a gated-disclosure norm for offensive-capable models — this is now the de facto industry stance.</li>
+        <li>Slipped release dates remain the rule, not the exception, complicating roadmaps that anchored on Q2 GPT-6 availability.</li>
+        <li>Enterprises buying frontier capability should plan around capability availability rather than model brand.</li>
+      </ul>
+      <p class="reco">Decouple your AI roadmap from any single lab's announced release window; define capability tiers and substitute models against them.</p>
+      <p class="meta"><span class="tags">Tags: AI for innovation · Responsible AI · Adoption momentum</span><span class="source"><a href="https://beforethecurve.medium.com/openai-and-anthropic-both-released-restricted-cyber-ai-models-in-7-days-heres-what-it-means-8084a8f13853">beforethecurve.medium.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">03.</span>Google ships the Gemma 4 family under Apache 2.0 with 256k context</h3>
+      <p>On 2 April Google released four Gemma 4 variants under Apache 2.0, including Gemma 4 31B (dense), 26B MoE, E4B, and E2B, each with a 256k token context window and free open weights. The release intensifies the open-weight pressure on closed-source incumbents, particularly for enterprises wanting on-prem or sovereign deployment. Coverage noted that the sheer volume of high-quality open-weight models combined with frontier gated previews makes April 2026 a turning point for cost-quality optionality.</p>
+      <ul>
+        <li>Open-weight 256k-context models change the cost-per-token curve for long-document and long-conversation use cases.</li>
+        <li>Procurement teams should rerun build-versus-buy maths against Gemma 4 before extending closed-source contracts.</li>
+        <li>Sovereign-cloud and regulated-industry deployments suddenly have a credible high-context default.</li>
+      </ul>
+      <p class="reco">Run a head-to-head Gemma 4 / closed-frontier benchmark on your top three internal use cases this quarter and route the answer into the next contract cycle.</p>
+      <p class="meta"><span class="tags">Tags: AI for innovation · Adoption momentum · Systems of intelligence</span><span class="source"><a href="https://llm-stats.com/llm-updates">llm-stats.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">04.</span>Google Cloud Next 2026 launches a slate of agent-building tools and a dedicated agent inbox</h3>
+      <p>On 22 April at Google Cloud Next, Google unveiled tools for enterprises to build, deploy and track AI agents, including a dedicated "agent inbox" where virtual workers post progress updates and information to humans. Updates spanned Workspace, Vertex AI agent infrastructure, and rebranded Gemini Enterprise offerings positioned around production-ready agent deployment. Google described a vision in which agents reshape day-to-day routines for typical knowledge workers.</p>
+      <ul>
+        <li>The "agent inbox" pattern formalises a new UI primitive — humans now triage agent output as a parallel queue to email and chat.</li>
+        <li>Cloud platforms are competing on agent governance and observability, not just model quality.</li>
+        <li>Workspace integration shortens the path from agent development to mass-distributed deployment among non-technical workers.</li>
+      </ul>
+      <p class="reco">Pilot a single high-volume process with a dedicated agent inbox before Q3, treating triage cadence and override rate as primary KPIs.</p>
+      <p class="meta"><span class="tags">Tags: AI as teammate · Adoption momentum · Role redefinition</span><span class="source"><a href="https://www.bloomberg.com/news/articles/2026-04-22/google-releases-new-ai-agents-to-challenge-openai-and-anthropic">bloomberg.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">05.</span>PwC: 20% of companies are capturing 74% of AI's economic value</h3>
+      <p>PwC's 2026 AI Performance study, surveying 1,217 senior executives across 25 sectors, found that nearly three quarters (74%) of AI's economic gains are concentrated in just one fifth of companies. The leading cohort is nearly twice as likely to use AI in advanced ways — multi-task agentic workflows or autonomous self-optimisation — and is increasing the share of decisions made without human intervention at 2.8x the rate of peers. PwC framed the gap as widening rather than closing.</p>
+      <ul>
+        <li>The leader-laggard divide is now too wide to be closed by faster pilots; closing it requires reorganising decision rights, not buying more tools.</li>
+        <li>Boards should pressure-test "AI strategy" by asking what share of decisions are now autonomous, not how many use cases are live.</li>
+        <li>Investors will start using autonomous-decision share as a leading indicator of AI value capture.</li>
+      </ul>
+      <p class="reco">Set a board-visible KPI for the share of operational decisions executed autonomously within guardrails, and report it quarterly.</p>
+      <p class="meta"><span class="tags">Tags: AI usage levels · Adoption momentum · Cultural change</span><span class="source"><a href="https://www.pwc.com/gx/en/news-room/press-releases/2026/pwc-2026-ai-performance-study.html">pwc.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">06.</span>NBER / Atlanta Fed: AI productivity gains real, employment hit modest, paradox visible</h3>
+      <p>A March NBER working paper based on a survey of nearly 750 corporate executives found positive labour-productivity gains from AI, especially in high-skill services and finance, with revenue-based total factor productivity strengthening into 2026. Aggregate firm-size-and-sector-weighted employment is expected to decline by less than 0.4% in 2026, with large companies expecting to shed workers while smaller firms expect modest growth. The authors document a "productivity paradox" in which perceived gains exceed measured gains, attributing it to delayed revenue realisation.</p>
+      <ul>
+        <li>Headline AI-employment risk is concentrated in large incumbents, not the broader economy.</li>
+        <li>Productivity gains will keep showing up in operating leverage before they show up in measured TFP — board reporting needs both views.</li>
+        <li>Smaller firms' "AI helps me grow" signal supports a strategic case for partnerships and SME-targeted services.</li>
+      </ul>
+      <p class="reco">Bring forward your operating-leverage targets by two quarters, but hold revenue-realisation forecasts on a longer arc.</p>
+      <p class="meta"><span class="tags">Tags: AI usage levels · Role redefinition · Global impact</span><span class="source"><a href="https://www.nber.org/papers/w34984">nber.org</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">07.</span>Gallup: 65% of employees in AI-adopting orgs say AI improved their productivity, but only 1 in 10 see system-level transformation</h3>
+      <p>Gallup's 4–19 February 2026 survey of 23,717 US employees found that 65% within AI-adopting organisations say AI has improved their productivity and efficiency, regardless of how often they personally use it. Only about one in ten strongly agree that AI has transformed how work gets done at the organisational level. The benefits remain concentrated at task level rather than at workflow or organisational level.</p>
+      <ul>
+        <li>Individual productivity gains do not aggregate automatically — workflow redesign is the unlock, not more AI tools.</li>
+        <li>Employee sentiment is positive enough to support more aggressive change management without backlash.</li>
+        <li>The gap between task-level and system-level transformation is the largest source of unrealised AI ROI in the data.</li>
+      </ul>
+      <p class="reco">Pick two end-to-end workflows and redesign them around AI agents this year, rather than continuing to seed task-level copilots across many teams.</p>
+      <p class="meta"><span class="tags">Tags: Cultural change · AI usage levels · Role redefinition</span><span class="source"><a href="https://www.gallup.com/workplace/704225/rising-adoption-spurs-workforce-changes.aspx">gallup.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">08.</span>Stanford HAI 2026 AI Index: 88% of orgs use AI, 70% have shipped genAI</h3>
+      <p>Stanford's HAI 2026 AI Index reported that 88% of organisations now use AI for at least one business function and 70% have deployed generative AI in at least one function, up from 33% in 2023. Generative AI hit 53% population adoption globally within three years, faster than the PC or the internet at the same stage. Adoption-momentum data also shows agentic AI moving from pilot into production at scale across enterprises in 2026.</p>
+      <ul>
+        <li>Adoption is no longer the relevant strategic question — penetration of high-value workflows is.</li>
+        <li>Faster-than-internet diffusion compresses the strategic window for incumbents to adapt.</li>
+        <li>Public-sector and regulated-industry laggards are now visibly behind the median, with reputational implications.</li>
+      </ul>
+      <p class="reco">Move boardroom AI reporting from adoption metrics to workflow-coverage metrics: how many of your top 20 workflows have an AI-native version?</p>
+      <p class="meta"><span class="tags">Tags: Adoption momentum · AI usage levels · Global impact</span><span class="source"><a href="https://hai.stanford.edu/ai-index">hai.stanford.edu</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">09.</span>Tech industry posts 80,000 Q1 layoffs, 47.9% explicitly AI-attributed</h3>
+      <p>Nikkei Asia data cited on 24 April reports 78,557 tech layoffs in Q1 2026, with 37,638 — 47.9% — attributed to AI and workflow automation. Meta and Microsoft separately announced more than 20,000 potential job cuts that week, alongside Snap's 1,000 cuts and earlier 30,000+ at Amazon since October. Sceptics including Sam Altman noted some layoffs labelled "AI" reflect AI-washing of decisions companies would have made anyway.</p>
+      <ul>
+        <li>The labour-market signal from large tech is now severe enough to shape macro narratives, regardless of attribution accuracy.</li>
+        <li>Talent freed by these cuts is reshaping the available founder and operator pool — particularly for SMB-targeted AI ventures.</li>
+        <li>Public AI-attribution risks reputational backlash if AI gains do not materialise in financial statements.</li>
+      </ul>
+      <p class="reco">If you are running a workforce-restructuring narrative, be prepared to publish productivity gains by line of business; the press cycle will require it.</p>
+      <p class="meta"><span class="tags">Tags: Role redefinition · Cultural change · Global impact</span><span class="source"><a href="https://www.cnbc.com/2026/04/24/20k-job-cuts-at-meta-microsoft-raise-concern-of-ai-labor-crisis-.html">cnbc.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">10.</span>EU AI Omnibus heads to political agreement, deadlines pushed to 2027 and 2028</h3>
+      <p>Trilogue negotiations on the AI Omnibus moved toward a target political agreement on 28 April 2026, with formal adoption expected by July ahead of the original 2 August 2026 high-risk-systems deadline. Both Council and Parliament have converged on extending stand-alone Annex III high-risk timelines to 2 December 2027 and Annex I product-embedded systems to 2 August 2028. Civil-society groups including ARTICLE 19 have called the package a weakening of the AI Act, particularly around Article 49(2) transparency.</p>
+      <ul>
+        <li>The compliance timetable for high-risk AI in Europe just shifted by 18–24 months for most enterprises.</li>
+        <li>Programme-level AI assurance work that was rushed for August can now be re-sequenced — but should not be paused.</li>
+        <li>Civil-society pushback raises the probability of late amendments hardening transparency requirements.</li>
+      </ul>
+      <p class="reco">Replan your AI-Act compliance programme on the new 2027–2028 horizon but keep transparency artefacts on the original schedule, in case Article 49(2) is reinstated.</p>
+      <p class="meta"><span class="tags">Tags: Responsible AI · Global impact · Cultural change</span><span class="source"><a href="https://www.ropesgray.com/en/insights/viewpoints/102mquz/ai-omnibus-trilogue-underwaywhat-to-expect-as-negotiations-progress">ropesgray.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">11.</span>Siemens warns it will skip Europe for €1bn industrial-AI spend if EU rules don't change</h3>
+      <p>At Hannover Messe on 19 April Siemens CEO Roland Busch said most of the company's €1bn ($1.2bn) industrial-AI investment will be directed to the US unless EU regulation adapts, calling the AI Act and Data Act mismatched to industrial AI. Busch argued that treating industrial AI like consumer applications layers redundant oversight onto already sector-regulated activities. Bloomberg framed the warning as a high-profile rebuttal to the European Commission's regulatory direction during a critical AI Omnibus negotiating window.</p>
+      <ul>
+        <li>Industrial-AI capex is becoming a public lobbying lever, not just a private capital allocation decision.</li>
+        <li>European regulators face a credible threat that capex flight will follow regulatory complexity.</li>
+        <li>Manufacturers in regulated industries should prepare arguments distinguishing industrial from consumer AI in their own compliance posture.</li>
+      </ul>
+      <p class="reco">If you operate industrial AI systems already covered by sector regulation, file a structured response to the AI Omnibus consultation now — capacity for late-stage influence narrows daily.</p>
+      <p class="meta"><span class="tags">Tags: Responsible AI · Global impact · Adoption momentum</span><span class="source"><a href="https://www.bloomberg.com/news/articles/2026-04-20/siemens-threatens-to-skip-europe-for-ai-spending-due-to-rules">bloomberg.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">12.</span>Japan's APPI amendment removes mandatory opt-in consent for AI training data</h3>
+      <p>On 7 April Japan's Cabinet approved an APPI amendment removing mandatory opt-in consent for sharing personal data in AI training when the data poses "little risk of infringing individuals' rights" or qualifies as research or statistics. Government interpretation extends the carve-out broadly enough to cover practical AI model training. The change makes Japan one of the most permissive major jurisdictions for first-party data use in model development.</p>
+      <ul>
+        <li>Japan becomes a structural advantage location for AI training data ops, particularly for global firms with mixed-region footprints.</li>
+        <li>The contrast with the EDPB's transparency push widens the regulatory gap between Asia, Europe and the US.</li>
+        <li>Multinationals will need explicit policies on which data sets train where, for both legal and reputational reasons.</li>
+      </ul>
+      <p class="reco">Document training-data jurisdiction in your AI inventory by Q3; the regulatory diversity now matters at the model-card level, not just at the policy level.</p>
+      <p class="meta"><span class="tags">Tags: Responsible AI · Global impact · Systems of intelligence</span><span class="source"><a href="https://www.eversheds-sutherland.com/en/global/insights/gloabl-ai-bulletin-april-2026">eversheds-sutherland.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">13.</span>Adobe and AWS partner to plug Bedrock AgentCore into Experience Platform</h3>
+      <p>Adobe and AWS announced a partnership letting enterprises create, deploy and manage marketing AI agents across Adobe Experience Platform Agent Orchestrator and Amazon Bedrock AgentCore. The move means brands can run agents trained and governed on AWS while orchestrating execution inside Adobe's marketing surface. The partnership lands alongside Adobe's CX Enterprise launch and signals a strategic alignment between the largest hyperscaler and the largest packaged martech vendor.</p>
+      <ul>
+        <li>Hyperscaler-martech alignment removes a friction point — agent-side compliance — that previously slowed enterprise rollout.</li>
+        <li>Marketing teams should expect agent governance to become a co-owned function with cloud-platform engineering.</li>
+        <li>Vendors not in a hyperscaler partnership face an additional procurement hurdle.</li>
+      </ul>
+      <p class="reco">Verify which hyperscaler your top three martech tools are committing to, and align internal cloud strategy before agent operations diverge from your enterprise standard.</p>
+      <p class="meta"><span class="tags">Tags: AI as teammate · AI × loyalty &amp; personalization · Systems of intelligence</span><span class="source"><a href="https://news.adobe.com/news/2026/04/adobe-unveils-cx-enterprise-coworker">news.adobe.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">14.</span>Tesco × Adobe Innovation Lab plugs Clubcard into agentic personalization</h3>
+      <p>Tesco's strategic partnership with Adobe combines Adobe Experience Platform's agentic capabilities and Adobe Firefly Foundry with the 24-million-household Clubcard data set. The two companies have stood up a joint Innovation Lab with Adobe engineers embedded alongside Tesco's personalization and AI teams. The stated objective is anticipating customer needs across the journey, not reacting to segments after the fact.</p>
+      <ul>
+        <li>The most-watched UK retail data set is now connected to a leading agentic-marketing stack, raising the personalization ceiling for European retail.</li>
+        <li>Embedded vendor engineering teams set a new norm for how loyalty programs partner with technology suppliers.</li>
+        <li>Sector benchmarks for "what good looks like" in AI-driven loyalty will shift toward Tesco's reported outcomes.</li>
+      </ul>
+      <p class="reco">If you are a top-three retailer in your market without a similar partnership, define the equivalent capability gap explicitly to your board within 90 days.</p>
+      <p class="meta"><span class="tags">Tags: AI × loyalty &amp; personalization · AI as teammate · Adoption momentum</span><span class="source"><a href="https://www.cxtoday.com/crm/u-k-retail-loyalty-enters-ai-era-as-ms-tesco-and-boots-drive-hyper-personalization-in-reward-schemes/">cxtoday.com</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">15.</span>Infor index: 80% of leaders feel ready for AI, but data sovereignty and ROI keep blocking them</h3>
+      <p>Infor's Enterprise AI Adoption Impact Index, published 22 April from a survey of 1,000 decision-makers across the US, UK, Germany and France, found that 80% believe their organisation has the internal capability to manage an AI implementation but cite data security and sovereignty (36%), AI talent (25%) and unclear ROI (23%) as principal blockers. Infor paired the index with new capabilities across Velocity Suite and limited availability of an enhanced Agentic Orchestrator. The headline gap remains between perceived readiness and structural enablement.</p>
+      <ul>
+        <li>The "talent gap" narrative is being displaced by a "sovereignty and ROI" narrative as the binding constraint.</li>
+        <li>European decision-makers are over-indexed on sovereignty concerns versus their US peers — relevant for go-to-market and sales motions in Europe.</li>
+        <li>Vendors that publish ROI methodology and audited outcomes will out-sell vendors that lead with capability claims.</li>
+      </ul>
+      <p class="reco">For your top two AI vendors, request audited ROI evidence from peer customers and a sovereignty architecture diagram, and decline to renew without both.</p>
+      <p class="meta"><span class="tags">Tags: Adoption momentum · Cultural change · Responsible AI</span><span class="source"><a href="https://www.infor.com/en/news/2026/04/20/enterprise-ai-adoption-impact-index-finds-more-than-half-of-businesses-struggle-to-scale-ai">infor.com</a></span></p>
+    </article>
+
+    <div class="themes">
+      <h2>Emerging themes</h2>
+
+      <div class="theme">
+        <h4>The frontier is forking into "shipped" and "gated"</h4>
+        <p>Anthropic's Claude Mythos and OpenAI's restricted cyber model establish, within a single week, a shared norm that the most capable models are no longer the publicly available ones. Google's Gemma 4 release simultaneously raises the open-weight floor, so the centre of practical capability is moving up while the absolute frontier becomes harder to procure. Companies that benchmarked themselves against "the latest model" need a richer strategy. Expect frontier-access partnerships, gated-program eligibility and open-weight equivalence to become parallel buying decisions.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Productivity is real, transformation is selective</h4>
+        <p>The Gallup, NBER and PwC findings together describe an economy where AI is delivering measurable individual productivity but only a minority of companies are turning that into structural value. The 80,000 Q1 layoffs and Meta–Microsoft cuts show large incumbents trying to capture operating leverage immediately, while NBER's smaller-firm growth signal points to a counter-trend at the SME end. The combination predicts widening competitive dispersion within the same sectors. Boards should expect AI-driven leader-laggard splits to look more like the late-cycle internet adoption gap than a uniform productivity uplift.</p>
+      </div>
+
+      <div class="theme">
+        <h4>European AI strategy is being negotiated in public</h4>
+        <p>The AI Omnibus trilogue and Siemens' €1bn warning indicate that the EU's AI compliance posture is being actively contested in real time, with the deadline shift to 2027–2028 buying breathing room but not resolution. Japan's APPI amendment in the same month underscores that Europe risks regulatory isolation if its calibration falls behind. For European leaders, the practical implication is that the substance of compliance can no longer be planned against a single static deadline. Scenario-based compliance roadmaps, not project plans, are the right artefact.</p>
+      </div>
+    </div>
+
+    <div class="reflect">
+      <h2>Reflection questions</h2>
+      <ol>
+        <li>What is the single workflow in your organisation that you would redesign end-to-end around an agent inbox if you had to ship it before year-end — and what stops you doing it this quarter?</li>
+        <li>If 74% of AI value is being captured by the top 20% of companies, what evidence would convince your board that you are inside that cohort, and is that evidence being collected today?</li>
+        <li>How does your AI roadmap change if the AI Act high-risk deadlines shift to 2027–2028, but transparency obligations are reinstated late in the trilogue?</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ STARTUPS ============ -->
+  <section class="tab-content" id="c-startups">
+    <h2>Startup Ideas</h2>
+    <p class="subtitle">Last 60 days of signals. 15 ideas.</p>
+
+    <article>
+      <h3><span class="idx">01.</span>AImersion — managed hyper-personalization for independent retailers</h3>
+      <p class="field"><strong>Pitch.</strong> A done-for-you managed service that gives independent Shopify retailers an Adobe-grade personalized customer journey for under £500 a month. Plug-and-play integration with Klaviyo, Shopify Audiences and Meta to operate a real Customer Decision Engine on top of small-merchant data. The wedge is operations as a service — humans plus a thin agent stack — not yet another personalization SaaS.</p>
+      <p class="field"><strong>Description.</strong> The hyper-personalization market is projected to grow to nearly $50bn by 2029, but enterprise-grade tools are out of reach for retailers with revenues under £20m. AImersion runs the playbook for them: per-customer welcome paths, propensity-driven win-back, real-time inventory-aware promos. The team blends a small ops desk in Lisbon or Wrocław with rule sets and lightweight ML packaged into reusable templates. Revenue scales with each new template but costs do not.</p>
+      <p class="field"><strong>Industry.</strong> Retail, ecommerce, SMB.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Subscription (£399–£999/month) plus one-time onboarding fee.</p>
+      <p class="meta"><span class="tags">Tags: Emerging market gaps · Apps · Cross-sector collisions</span><span class="source">Source: <a href="https://insiderone.com/ai-hyper-personalization-retail/">insiderone.com — AI Hyper-Personalization in Retail (2026)</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">02.</span>PointBroker — secondary marketplace for expiring loyalty points</h3>
+      <p class="field"><strong>Pitch.</strong> An app where consumers list expiring hotel and airline points and get matched, brokered or redeemed in a way they would not bother to figure out alone. PointBroker takes a 15% cut and uses bot-driven redemption optimisation to convert dormant points into something usable.</p>
+      <p class="field"><strong>Description.</strong> Skift's analysis shows hotel groups alone owe roughly $11.6bn in unredeemed points, with billions more sitting in airline and credit-card programs. Most of that value evaporates because optimal redemption requires effort and knowledge most members do not have. PointBroker handles redemption mechanics, flags devaluations and supports limited peer-to-peer transfers where program rules allow. The defensible moat is operational expertise, not technology.</p>
+      <p class="field"><strong>Industry.</strong> Travel, consumer.</p>
+      <p class="field"><strong>Technicity.</strong> Low to medium.</p>
+      <p class="field"><strong>Business model.</strong> Transaction take-rate plus optional premium subscription for power users.</p>
+      <p class="meta"><span class="tags">Tags: Disintermediation · Apps · Consumer behavior change</span><span class="source">Source: <a href="https://skift.com/2026/04/05/the-7-billion-loyalty-iou-what-marriott-and-hilton-owe-members/">skift.com — The $7 Billion Loyalty IOU</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">03.</span>Sub250 — sub-250g cross-border parcel router for marketplace sellers</h3>
+      <p class="field"><strong>Pitch.</strong> A no-code dashboard that automatically routes ebay/Etsy/Shopify parcels under 250 grams to the cheapest qualifying carrier in each country, plugging into the new generation of small-parcel offerings led by Australia Post. Sellers paste their tracking once and Sub250 picks the lowest-cost route per item.</p>
+      <p class="field"><strong>Description.</strong> Marketplace sellers pay a structural overcharge on small items because their default carriers do not surface micro-parcel rates. Sub250 normalises rate cards across providers, applies item-level dimensions and routes labels through a single API. It targets the long tail of sellers shipping under 5,000 parcels per month, where the savings — typically 18–35% per parcel — clear enough to make a £29/month subscription a no-brainer.</p>
+      <p class="field"><strong>Industry.</strong> Ecommerce logistics, SMB.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Tiered SaaS subscription (£29–£199/month).</p>
+      <p class="meta"><span class="tags">Tags: Supply chain innovation · Apps · Cross-sector collisions</span><span class="source">Source: <a href="https://www.practicalecommerce.com/new-ecommerce-tools-april-22-2026">practicalecommerce.com — New Ecommerce Tools April 22, 2026</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">04.</span>GEO Beacon — generative-engine-optimisation tracker for SMBs</h3>
+      <p class="field"><strong>Pitch.</strong> A monthly subscription tool for small businesses to monitor and improve how they appear in answers from ChatGPT, Claude, Google AI Mode and Gemini. It ships brand visibility scores, content gap diagnostics and prioritised remediation prompts.</p>
+      <p class="field"><strong>Description.</strong> Adobe and Parsnipp launched enterprise-grade GEO tools in April for brands managing complex content estates, but SMBs face the same problem with none of the budget. GEO Beacon runs scheduled prompts against major LLM endpoints, parses citations and competitor mentions, and tells a small business owner what to publish, fix or claim. The product needs to be easy enough for a salon or estate agent to operate weekly.</p>
+      <p class="field"><strong>Industry.</strong> Marketing tech, SMB.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Tiered SaaS (€29–€149/month) and agency reseller program.</p>
+      <p class="meta"><span class="tags">Tags: Enabling infrastructure · Apps · Consumer behavior change</span><span class="source">Source: <a href="https://www.practicalecommerce.com/new-ecommerce-tools-april-22-2026">practicalecommerce.com — Adobe Brand Visibility &amp; Parsnipp GEO</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">05.</span>ChurnSense — pre-cancel intervention for creator subscriptions</h3>
+      <p class="field"><strong>Pitch.</strong> A no-code tool that watches creator subscription platforms (Substack, Patreon, Memberful, Ghost) for early churn signals and triggers personalized interventions — exclusive content, time-limited offers, founder DMs — up to 30 days before cancellation.</p>
+      <p class="field"><strong>Description.</strong> Reducing monthly churn by even 5% compounds into 60–80% higher annual revenue, and the most successful AI revenue strategies for creators in 2026 turn precisely on predictive churn modelling. ChurnSense reads engagement signals via official APIs, ranks subscribers by cancel risk and pushes a recommended action into the creator's dashboard. The model is operator-friendly: creators do not configure ML, they just approve the intervention.</p>
+      <p class="field"><strong>Industry.</strong> Creator economy, SaaS.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Per-creator SaaS ($19–$79/month) with revenue-share tier for managed accounts.</p>
+      <p class="meta"><span class="tags">Tags: Apps · Enabling infrastructure · Consumer behavior change</span><span class="source">Source: <a href="https://markets.financialcontent.com/stocks/article/abnewswire-2026-4-20-ai-powered-growth-new-trends-in-creator-monetization">financialcontent.com — AI-Powered Creator Monetization (Apr 2026)</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">06.</span>PassionTrade — peer-to-peer marketplace for "passion point" loyalty experiences</h3>
+      <p class="field"><strong>Pitch.</strong> A two-sided marketplace where loyalty members swap experience-rewards (Marriott Bonvoy concert tickets, AAdvantage gift cards, Hilton confirmed upgrades) for cash or another program's points. The user picks experiences they actually want and offloads what they don't.</p>
+      <p class="field"><strong>Description.</strong> Marriott's "Passion Points" expansion and Hilton's Confirmable Upgrade Reward are creating non-fungible perks that members increasingly cannot use themselves. PassionTrade turns those into a liquid micro-market. The legal wedge sits inside member-permitted gifting; the technical wedge is ID-matching and in-app escrow. Take-rate scales with experience value.</p>
+      <p class="field"><strong>Industry.</strong> Travel, consumer fintech.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Marketplace take-rate (10–20%).</p>
+      <p class="meta"><span class="tags">Tags: Disintermediation · Consumer behavior change · Apps</span><span class="source">Source: <a href="https://skift.com/2026/04/05/the-7-billion-loyalty-iou-what-marriott-and-hilton-owe-members/">skift.com — Marriott &amp; Hilton Loyalty IOU</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">07.</span>Modesto — WhatsApp-native AI concierge for local SMB retailers</h3>
+      <p class="field"><strong>Pitch.</strong> A €29/month WhatsApp-native concierge that answers customer questions, books appointments and follows up on quotes for local retailers — restaurants, salons, garages, boutique shops. Set up in twenty minutes from a single phone number.</p>
+      <p class="field"><strong>Description.</strong> Vodafone's AI Concierge launch with Google Cloud signals that "AI for SMB customer service" has become a packaged category, but the bundles favour telecom customers. Modesto delivers the same outcome with no telecom contract, a focused vertical playbook per industry, and pricing that a sole-trader will pay without a sales call. It runs on existing LLM APIs plus a thin business-rules layer per vertical.</p>
+      <p class="field"><strong>Industry.</strong> SMB retail, services.</p>
+      <p class="field"><strong>Technicity.</strong> Medium to high.</p>
+      <p class="field"><strong>Business model.</strong> Flat €29/month plus per-conversation overage.</p>
+      <p class="meta"><span class="tags">Tags: Emerging market gaps · Apps · Technological breakthroughs</span><span class="source">Source: <a href="https://www.cxtoday.com/security-privacy-compliance/vodafone-business-and-google-cloud-launch-ai-and-cybersecurity-tools-for-smbs-as-cyber-risks-rise/">cxtoday.com — Vodafone Business AI Concierge for SMBs</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">08.</span>Cloakroom — zero-party-data signup widget for EU retailers</h3>
+      <p class="field"><strong>Pitch.</strong> A one-line script that any retailer can drop into their site to run a five-question explicit-consent profile collection, with an integrated value-exchange (a discount, an early-access pass or a tailored welcome bundle). Privacy-by-design. Audit-ready out of the box.</p>
+      <p class="field"><strong>Description.</strong> The EDPB's 2026 transparency CEA and Italy's recent €6.6m retention fine make sloppy consent collection an active enforcement risk for any European retailer. Cloakroom replaces ambiguous tick-boxes with a structured, auditable zero-party data exchange whose answers feed directly into the merchant's CRM as enriched profile attributes. The product captures the profile that hyper-personalization needs without inheriting third-party-cookie liability.</p>
+      <p class="field"><strong>Industry.</strong> Marketing tech, privacy, retail.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Tiered SaaS by monthly active profiles.</p>
+      <p class="meta"><span class="tags">Tags: Regulatory shifts · Apps · Emerging market gaps</span><span class="source">Source: <a href="https://www.insideprivacy.com/eu-data-protection/edpb-to-focus-on-transparency-in-2026-enforcement/">insideprivacy.com — EDPB 2026 Enforcement Focus</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">09.</span>ComfortBox — £15/month "comfort consumption" subscription</h3>
+      <p class="field"><strong>Pitch.</strong> A £15/month curated box of small affordable comforts — wellness sachets, hobby supplies, indulgent snacks, mood-boosting reads. Designed for the third of consumers cutting discretionary spend but seeking emotional relief.</p>
+      <p class="field"><strong>Description.</strong> WARC's 2026 consumer outlook flagged "comfort consumption" — small affordable purchases offering emotional relief — as the central response to economic anxiety. ComfortBox builds an unbundled, lower-price-point alternative to existing premium subscription boxes. The economics work because the SKU mix is dominated by small-format, high-emotional-margin items sourced from independent makers.</p>
+      <p class="field"><strong>Industry.</strong> D2C consumer, wellness.</p>
+      <p class="field"><strong>Technicity.</strong> Low.</p>
+      <p class="field"><strong>Business model.</strong> Recurring subscription, with optional gifting and seasonal premium tiers.</p>
+      <p class="meta"><span class="tags">Tags: Consumer behavior change · Business model innovation · Cross-sector collisions</span><span class="source">Source: <a href="https://www.insideradio.com/free/warc-report-highlights-forces-reshaping-consumer-spending-in-2026/article_6ddd4b0a-192c-408c-a1b2-d7285169599d.html">insideradio.com — WARC 2026 Consumer Trends</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">10.</span>MidLane — fee-free rewards card for the squeezed middle</h3>
+      <p class="field"><strong>Pitch.</strong> A no-fee rewards card targeting middle-class consumers being priced out of premium-card programs, issued through a fintech-as-a-service partner. Earn-rate built on retail-partner co-funding rather than annual fees.</p>
+      <p class="field"><strong>Description.</strong> CFPB data shows annual card fees roughly tripled from $3bn in 2015 to $8.7bn in 2024, even as 2.4% fewer people pay them. MidLane targets the mid-tier explicitly: simple 2% across the board, plus elevated earn at five rotating partner brands negotiated quarterly. The product launches via a UK or EEA fintech-as-a-service issuer to avoid balance-sheet capex on day one.</p>
+      <p class="field"><strong>Industry.</strong> Consumer fintech, retail.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Interchange share plus partner co-funding.</p>
+      <p class="meta"><span class="tags">Tags: Disintermediation · Business model innovation · Consumer behavior change</span><span class="source">Source: <a href="https://www.cnbc.com/select/credit-card-trends-2026/">cnbc.com — 2026 Credit Card Trends</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">11.</span>FuelScreens — programmatic ad network for independent fuel stations</h3>
+      <p class="field"><strong>Pitch.</strong> A no-code platform that lets independent fuel stations sell programmatic ads on their pump screens — mirroring Sam's Club's Retail Experience Network for the long tail. Stations get a revenue share without buying hardware or learning ad-tech.</p>
+      <p class="field"><strong>Description.</strong> Sam's Club's expansion to 500+ fuel-pump screens proved that captive 4-minute fuel-pump dwell time is a measurable advertising surface. Independents have the dwell time but not the inventory infrastructure. FuelScreens supplies a basic Android-tablet kit, an SSP integration with major brand-DSPs, and a simple revenue dashboard. Sites onboard via local distributor channels.</p>
+      <p class="field"><strong>Industry.</strong> Retail media, energy retail, SMB.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> 30/70 ad-revenue share with the station, plus hardware leasing margin.</p>
+      <p class="meta"><span class="tags">Tags: Cross-sector collisions · Enabling infrastructure · Emerging market gaps</span><span class="source">Source: <a href="https://invidis.com/news/2026/04/retail-sams-club-expands-retail-media-network/">invidis.com — Sam's Club Retail Experience Network</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">12.</span>StatusNet — micro-collab community for sub-living-wage creators</h3>
+      <p class="field"><strong>Pitch.</strong> A €5/month community for the 56% of full-time creators earning below a living wage. Shoutouts, micro-collabs, pooled affiliate reach and shared analytics, organised around mutually selected niches.</p>
+      <p class="field"><strong>Description.</strong> The Influencer Marketing Factory's January 2026 survey found 48.7% of US creators still earn under $10,000 a year and 56% of full-timers earn below a living wage. The Picsart program shows that performance-based monetization — open to anyone, no minimum following — is the new direction. StatusNet stitches small creators together so that aggregate reach lands them brand deals individually inaccessible. It is a community-first product, with light tooling.</p>
+      <p class="field"><strong>Industry.</strong> Creator economy, community.</p>
+      <p class="field"><strong>Technicity.</strong> Low.</p>
+      <p class="field"><strong>Business model.</strong> Subscription plus group-deal commission.</p>
+      <p class="meta"><span class="tags">Tags: Disintermediation · Apps · Business model innovation</span><span class="source">Source: <a href="https://techcrunch.com/2026/04/06/ai-design-platform-picsart-launches-a-creator-monetization-program/">techcrunch.com — Picsart Creator Monetization Program</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">13.</span>PlainPolicy — auto-translate compliance text into customer-grade copy</h3>
+      <p class="field"><strong>Pitch.</strong> A B2B tool that turns AI Act and GDPR transparency requirements into plain-English, brand-toned customer-facing privacy notices and consent UI. Sells to mid-market SaaS and consumer brands ahead of the EDPB's 2026 enforcement and the AI Omnibus's 2027–2028 deadlines.</p>
+      <p class="field"><strong>Description.</strong> Most legal-tech tools generate compliance documents for lawyers; the friction is on the customer side. PlainPolicy ingests a company's existing privacy and AI documentation, maps clauses to the relevant regulation, and produces customer-facing UI copy plus an audit trail demonstrating equivalence. The product is one prompt-pack and a templating layer wrapped in a defensible SOC-2 posture.</p>
+      <p class="field"><strong>Industry.</strong> B2B legal tech, SaaS.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Per-seat SaaS plus per-document fee for high-volume teams.</p>
+      <p class="meta"><span class="tags">Tags: Regulatory shifts · Apps · Business model innovation</span><span class="source">Source: <a href="https://www.ropesgray.com/en/insights/viewpoints/102mquz/ai-omnibus-trilogue-underwaywhat-to-expect-as-negotiations-progress">ropesgray.com — AI Omnibus Trilogue Underway</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">14.</span>TabBack — automatic loyalty-points reclamation app</h3>
+      <p class="field"><strong>Pitch.</strong> A consumer app that tracks all your loyalty programs, alerts you 30 days before any points expire, and proposes (or auto-executes) the highest-value redemption. Free for the first three programs, premium for unlimited.</p>
+      <p class="field"><strong>Description.</strong> Silent devaluations — drops in transfer ratios, slower earning, hidden fee increases — quietly cost consumers double-digit-percentage value across hotel, airline and retail programs. TabBack uses email-forwarding-based account scraping plus a curated devaluation database to deliver a single dashboard. Users get a clear monthly score, an action list and a spreadsheet of "use it or lose it" opportunities.</p>
+      <p class="field"><strong>Industry.</strong> Consumer fintech, loyalty.</p>
+      <p class="field"><strong>Technicity.</strong> Medium.</p>
+      <p class="field"><strong>Business model.</strong> Freemium ($0 / $5.99 month / $49.99 year) plus affiliate referrals.</p>
+      <p class="meta"><span class="tags">Tags: Apps · Consumer behavior change · Business model innovation</span><span class="source">Source: <a href="https://yournews.com/2026/04/24/6841671/8-signs-your-credit-card-rewards-program-just-devalued-without/">yournews.com — Silent Devaluations in Rewards Programs</a></span></p>
+    </article>
+
+    <article>
+      <h3><span class="idx">15.</span>AgentRail — agent-governance dashboard for marketing teams</h3>
+      <p class="field"><strong>Pitch.</strong> A lightweight SaaS that logs, audits and rate-limits AI-agent actions inside a marketing team's CDP and martech stack. Drop-in connectors for Adobe Experience Platform, Salesforce, Braze and Klaviyo. Built for the AI Act compliance window.</p>
+      <p class="field"><strong>Description.</strong> Deloitte's 2026 State of AI in the Enterprise found only one in five companies has a mature governance model for autonomous agents, and Adobe's CX Enterprise launch puts agents directly inside marketing surfaces. AgentRail is the missing observability layer: per-action audit trails, scoped permissions, override workflows and exportable evidence packs aligned with the AI Act. Sells to marketing operations, not security.</p>
+      <p class="field"><strong>Industry.</strong> Marketing tech, governance.</p>
+      <p class="field"><strong>Technicity.</strong> High.</p>
+      <p class="field"><strong>Business model.</strong> Per-connector SaaS plus annual compliance-pack fee.</p>
+      <p class="meta"><span class="tags">Tags: Regulatory shifts · Enabling infrastructure · Technological breakthroughs</span><span class="source">Source: <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/content/state-of-ai-in-the-enterprise.html">deloitte.com — State of AI in the Enterprise 2026</a></span></p>
+    </article>
+
+    <div class="themes">
+      <h2>Emerging themes</h2>
+
+      <div class="theme">
+        <h4>SMB enablement is the asymmetric AI opportunity</h4>
+        <p>AImersion, Modesto, GEO Beacon, FuelScreens and Cloakroom all bet on the same gap: small businesses increasingly need enterprise-grade AI capabilities and cannot afford the way they are sold today. Vodafone and Google's joint AI Concierge launch validates the category but constrains it to telecom-bundled customers, leaving open lanes for vertical, no-bundle plays. Founders willing to operate at €30–€300/month price points and absorb implementation overhead can win durable customer bases. The category benefits from the NBER finding that smaller firms expect to grow employment alongside AI rather than shrink.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Loyalty's structural waste is now a startup market</h4>
+        <p>PointBroker, PassionTrade and TabBack all monetise inefficiencies that program operators have either tolerated or actively engineered: $11.6bn of unredeemed hotel points, growing experience-redemption complexity, and silent devaluations across cards. As programs lean further into "passion points" and confirmable upgrades, the friction of using them properly will increase, not decrease. The startup window opens precisely because operators cannot internally champion products that surface their own waste. Expect program-side resistance, then quiet partnerships once the category proves durable.</p>
+      </div>
+
+      <div class="theme">
+        <h4>Compliance as a consumer-grade product surface</h4>
+        <p>Cloakroom, PlainPolicy and AgentRail all reframe compliance as an interface problem rather than a legal-document problem, riding the EDPB's 2026 transparency push, the AI Omnibus deadlines and Italy's recent €6.6m retention fine. The opportunity is not selling more documents to lawyers but making compliance visible and operable to the people who actually trigger it — marketers, product owners, founders. That implies a product-design discipline closer to consumer SaaS than legal-tech. The first vendor to nail that aesthetic for AI Act readiness will define the category.</p>
+      </div>
+    </div>
+  </section>
+
+</form>
+
+</div>
+</body>
+</html>
